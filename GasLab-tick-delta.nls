@@ -1,0 +1,28 @@
+
+globals [
+  tick-delta                                  ;; how much we advance the tick counter this time through
+  max-tick-delta                              ;; the largest tick-delta is allowed to be
+]
+
+to GasLab-init-tick-delta
+  set max-tick-delta 0.1073
+end
+
+to GasLab-new-tick-delta
+  tick-advance tick-delta
+  calculate-tick-delta
+end
+
+to calculate-tick-delta
+  ;; tick-delta is calculated in such way that even the fastest
+  ;; particle will jump at most 1 patch length in a tick. As
+  ;; particles jump (speed * tick-delta) at every tick, making
+  ;; tick length the inverse of the speed of the fastest particle
+  ;; (1/max speed) assures that. Having each particle advance at most
+  ;; one patch-length is necessary for it not to "jump over" a wall
+  ;; or another particle.
+  ifelse any? particles with [speed > 0]
+    [ set tick-delta min list (1 / (ceiling max [speed] of particles)) max-tick-delta ]
+    [ set tick-delta max-tick-delta ]
+end
+
