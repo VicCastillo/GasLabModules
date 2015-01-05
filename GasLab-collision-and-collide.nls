@@ -3,7 +3,7 @@
 ;; Particles are assumed to own:
 ;;      mass, speed, energy, and last-collision
 
-to check-for-collision-and-collide  ;; particle procedure
+to GasLab-collision-and-collide  ;; particle procedure
                         ;; Here we impose a rule that collisions only take place when there
                         ;; are exactly two particles per patch.
 

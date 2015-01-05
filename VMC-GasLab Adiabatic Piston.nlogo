@@ -81,7 +81,7 @@ to go
   ask particles [ 
     bounce 
     move 
-    check-for-collision-and-collide
+    GasLab-collision-and-collide
     recolor] 
   
   move-piston
@@ -317,7 +317,6 @@ end
 
 ; Copyright 1997 Uri Wilensky.
 ; See Info tab for full copyright and license.
-
 
 
 

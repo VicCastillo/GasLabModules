@@ -27,7 +27,7 @@ to go
   ask particles [ 
     bounce 
     move 
-    check-for-collision-and-collide
+    GasLab-collision-and-collide
     recolor] 
   
   GasLab-new-tick-delta
@@ -101,7 +101,6 @@ end
 
 ; Copyright 2002 Uri Wilensky.
 ; See Info tab for full copyright and license.
-
 
 @#$#@#$#@
 GRAPHICS-WINDOW
